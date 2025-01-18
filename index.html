@@ -1,0 +1,336 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SecureGuard Insurance</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-wrap">
+      <div class="logo">
+        <h1><i class="fas fa-shield-alt"></i> SecureGuard</h1>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#coverage">Coverage</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h2>Protecting What Matters Most</h2>
+      <p>Your Security, Our Priority</p>
+      <a href="#contact" class="cta-button">Get a Quote</a>
+    </div>
+  </section>
+
+  <section class="calculator-section">
+    <div class="container">
+      <h2>Insurance Calculator</h2>
+      <div class="calculator-widget">
+        <div class="calculator-form">
+          <select id="insuranceType">
+            <option value="">Select Insurance Type</option>
+            <option value="life">Life Insurance</option>
+            <option value="health">Health Insurance</option>
+            <option value="property">Property Insurance</option>
+            <option value="auto">Auto Insurance</option>
+          </select>
+          <input type="number" id="age" placeholder="Your Age">
+          <input type="number" id="coverage" placeholder="Desired Coverage Amount">
+          <button onclick="calculatePremium()" class="calc-button">Calculate Premium</button>
+        </div>
+        <div id="premium-result" class="premium-display">
+          <h3>Estimated Monthly Premium</h3>
+          <div class="premium-amount">$0</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="services-grid">
+        <div class="service-card" data-aos="fade-up">
+          <i class="fas fa-heartbeat"></i>
+          <h3>Life Insurance</h3>
+          <p>Secure your family's future with our comprehensive life insurance plans.</p>
+          <button class="learn-more-btn" onclick="showServiceDetails('life')">Learn More</button>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <i class="fas fa-hospital-user"></i>
+          <h3>Health Insurance</h3>
+          <p>Quality healthcare coverage for you and your loved ones.</p>
+          <button class="learn-more-btn" onclick="showServiceDetails('health')">Learn More</button>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <i class="fas fa-home"></i>
+          <h3>Property Insurance</h3>
+          <p>Protect your home and assets with our property coverage options.</p>
+          <button class="learn-more-btn" onclick="showServiceDetails('property')">Learn More</button>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <i class="fas fa-car"></i>
+          <h3>Auto Insurance</h3>
+          <p>Comprehensive auto coverage for peace of mind on the road.</p>
+          <button class="learn-more-btn" onclick="showServiceDetails('auto')">Learn More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="coverage" id="coverage">
+    <div class="container">
+      <h2>Coverage Plans</h2>
+      <div class="coverage-comparison">
+        <div class="plan-card basic" data-aos="fade-right">
+          <h3>Basic Plan</h3>
+          <div class="price">$49<span>/month</span></div>
+          <ul>
+            <li><i class="fas fa-check"></i> Basic Life Coverage</li>
+            <li><i class="fas fa-check"></i> Emergency Medical</li>
+            <li><i class="fas fa-check"></i> Personal Liability</li>
+            <li><i class="fas fa-times"></i> Property Protection</li>
+            <li><i class="fas fa-times"></i> Travel Insurance</li>
+          </ul>
+          <button onclick="selectPlan('basic')" class="select-plan-btn">Select Plan</button>
+        </div>
+        <div class="plan-card premium" data-aos="fade-up">
+          <div class="recommended">Recommended</div>
+          <h3>Premium Plan</h3>
+          <div class="price">$99<span>/month</span></div>
+          <ul>
+            <li><i class="fas fa-check"></i> Enhanced Life Coverage</li>
+            <li><i class="fas fa-check"></i> Comprehensive Medical</li>
+            <li><i class="fas fa-check"></i> Extended Liability</li>
+            <li><i class="fas fa-check"></i> Property Protection</li>
+            <li><i class="fas fa-check"></i> Basic Travel Insurance</li>
+          </ul>
+          <button onclick="selectPlan('premium')" class="select-plan-btn">Select Plan</button>
+        </div>
+        <div class="plan-card ultimate" data-aos="fade-left">
+          <h3>Ultimate Plan</h3>
+          <div class="price">$149<span>/month</span></div>
+          <ul>
+            <li><i class="fas fa-check"></i> Maximum Life Coverage</li>
+            <li><i class="fas fa-check"></i> Premium Medical</li>
+            <li><i class="fas fa-check"></i> Full Liability</li>
+            <li><i class="fas fa-check"></i> Complete Property Protection</li>
+            <li><i class="fas fa-check"></i> Global Travel Insurance</li>
+          </ul>
+          <button onclick="selectPlan('ultimate')" class="select-plan-btn">Select Plan</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <h2>About SecureGuard</h2>
+      <div class="about-tabs">
+        <button class="tab-btn active" data-tab="company">Our Company</button>
+        <button class="tab-btn" data-tab="values">Our Values</button>
+        <button class="tab-btn" data-tab="milestones">Our Journey</button>
+        <button class="tab-btn" data-tab="stats">Our Impact</button>
+      </div>
+      
+      <div class="tab-content">
+        <div class="tab-pane active" id="company">
+          <div class="company-info" data-aos="fade-up">
+            <h3>Your Trusted Insurance Partner Since 1990</h3>
+            <p>Founded with a vision to provide reliable and comprehensive insurance solutions, SecureGuard has grown from a small local agency to one of the most trusted names in the insurance industry. Our commitment to excellence and customer satisfaction has helped us serve over a million clients across 50+ countries.</p>
+            
+            <div class="mission-vision">
+              <div class="mission">
+                <h4><i class="fas fa-bullseye"></i> Our Mission</h4>
+                <p>To provide innovative insurance solutions that protect what matters most to our clients, delivering peace of mind through exceptional service and unwavering commitment to their security.</p>
+              </div>
+              <div class="vision">
+                <h4><i class="fas fa-eye"></i> Our Vision</h4>
+                <p>To be the world's most trusted insurance partner, setting industry standards for customer service, innovation, and reliability.</p>
+              </div>
+            </div>
+
+            <div class="company-highlights">
+              <div class="highlight" data-aos="fade-up">
+                <i class="fas fa-users"></i>
+                <h4>1M+ Customers</h4>
+                <p>Trusted by individuals and businesses worldwide</p>
+              </div>
+              <div class="highlight" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-globe"></i>
+                <h4>50+ Countries</h4>
+                <p>Global presence with local expertise</p>
+              </div>
+              <div class="highlight" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-award"></i>
+                <h4>99% Satisfaction</h4>
+                <p>Consistently exceeding customer expectations</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-pane" id="values">
+          <div class="values-grid" data-aos="fade-up">
+            <div class="value-item">
+              <i class="fas fa-heart"></i>
+              <h4>Trust</h4>
+              <p>We build lasting relationships through transparency, reliability, and consistent delivery of our promises. Our clients trust us with their most valuable assets, and we honor that trust every day.</p>
+            </div>
+            <div class="value-item">
+              <i class="fas fa-handshake"></i>
+              <h4>Integrity</h4>
+              <p>We maintain the highest standards of professional conduct, ensuring ethical practices in everything we do. Our decisions are guided by what's right, not what's easy.</p>
+            </div>
+            <div class="value-item">
+              <i class="fas fa-bolt"></i>
+              <h4>Innovation</h4>
+              <p>We continuously evolve our services through cutting-edge technology and creative solutions, staying ahead of industry trends to better serve our clients.</p>
+            </div>
+            <div class="value-item">
+              <i class="fas fa-shield-alt"></i>
+              <h4>Protection</h4>
+              <p>We are committed to safeguarding our clients' interests, providing comprehensive coverage that gives them peace of mind in an uncertain world.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane" id="milestones">
+          <div class="timeline" data-aos="fade-up">
+            <div class="milestone">
+              <div class="year">1990</div>
+              <h4>Company Founded</h4>
+              <p>SecureGuard established as a local insurance agency</p>
+            </div>
+            <div class="milestone">
+              <div class="year">2000</div>
+              <h4>National Expansion</h4>
+              <p>Expanded operations across all major cities</p>
+            </div>
+            <div class="milestone">
+              <div class="year">2010</div>
+              <h4>International Growth</h4>
+              <p>Began international operations in 20 countries</p>
+            </div>
+            <div class="milestone">
+              <div class="year">2020</div>
+              <h4>Digital Transformation</h4>
+              <p>Launched innovative digital insurance solutions</p>
+            </div>
+            <div class="milestone">
+              <div class="year">2023</div>
+              <h4>Industry Leader</h4>
+              <p>Recognized as one of the top 10 global insurance providers</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-pane" id="stats">
+          <div class="stats-container" data-aos="fade-up">
+            <div class="stat-box">
+              <div class="stat-number" data-target="98">0</div>
+              <div class="stat-label">Claims Approved %</div>
+              <p>Fast and fair claims processing</p>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number" data-target="24">0</div>
+              <div class="stat-label">Hour Support</div>
+              <p>Always here when you need us</p>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number" data-target="500">0</div>
+              <div class="stat-label">Expert Agents</div>
+              <p>Professionally certified advisors</p>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number" data-target="30">0</div>
+              <div class="stat-label">Years of Excellence</div>
+              <p>Decades of trusted service</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2>Get Your Free Quote</h2>
+      <form class="contact-form">
+        <div class="form-group">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+          <input type="tel" placeholder="Phone Number" required>
+          <select required>
+            <option value="">Select Insurance Type</option>
+            <option value="life">Life Insurance</option>
+            <option value="health">Health Insurance</option>
+            <option value="property">Property Insurance</option>
+            <option value="auto">Auto Insurance</option>
+          </select>
+        </div>
+        <textarea placeholder="Additional Information" required></textarea>
+        <button type="submit" class="submit-button">Request Quote</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-widgets">
+        <div class="widget">
+          <h4>About SecureGuard</h4>
+          <p>Your trusted partner in life's journey, providing comprehensive insurance solutions for every need.</p>
+        </div>
+        <div class="widget">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#coverage">Coverage</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="https://secureguard.com/privacy">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="widget">
+          <h4>Contact Info</h4>
+          <p>123 Insurance Plaza<br>
+             New York, NY 10001<br>
+             Phone: (555) 555-5555<br>
+             Email: info@secureguard.com</p>
+        </div>
+        <div class="widget">
+          <h4>Connect With Us</h4>
+          <div class="social-links">
+            <a href="https://linkedin.com"><i class="fab fa-linkedin"></i></a>
+            <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 SecureGuard Insurance. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
